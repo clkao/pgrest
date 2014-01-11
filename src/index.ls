@@ -244,7 +244,8 @@ function build_rules(plx, cb)
             DO #{type} (#{command});
         """, (err) -> console.log err
         done!
-  <- async.waterfall allrules.reduce (++)
+    if allrules.length > 0
+      <- async.waterfall allrules.reduce (++)
   cb!
 
 function build_views(plx, cb)
